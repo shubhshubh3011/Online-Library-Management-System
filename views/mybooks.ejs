@@ -1,0 +1,12 @@
+<h2>Borrowed Books</h2>
+
+<ul>
+  <% transactions.forEach(t => { %>
+    <li>
+      Book ID: <%= t.bookId %>
+      <a href="/return/<%= t._id %>">Return</a>
+    </li>
+  <% }) %>
+</ul>
+
+<a href="/books">Back</a>

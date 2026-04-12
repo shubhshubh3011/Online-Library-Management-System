@@ -1,0 +1,19 @@
+<h2>Books</h2>
+
+<form method="POST" action="/add-book">
+  <input name="title" placeholder="Title" required>
+  <input name="author" placeholder="Author" required>
+  <input name="quantity" placeholder="Qty" required>
+  <button>Add Book</button>
+</form>
+
+<ul>
+  <% books.forEach(book => { %>
+    <li>
+      <%= book.title %> - <%= book.author %> (Qty: <%= book.quantity %>)
+      <a href="/borrow/<%= book._id %>">Borrow</a>
+    </li>
+  <% }) %>
+</ul>
+
+<a href="/mybooks">My Books</a>
