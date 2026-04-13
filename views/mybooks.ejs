@@ -1,12 +1,15 @@
-<h2>Borrowed Books</h2>
 
-<ul>
+<h2 class="text-2xl font-bold mb-4">📖 My Books</h2>
+
+<div class="grid gap-4">
   <% transactions.forEach(t => { %>
-    <li>
-      Book ID: <%= t.bookId %>
-      <a href="/return/<%= t._id %>">Return</a>
-    </li>
-  <% }) %>
-</ul>
+    <div class="bg-white p-4 rounded shadow">
+      <p>Book ID: <%= t.bookId %></p>
 
-<a href="/books">Back</a>
+      <a href="/return/<%= t._id %>" 
+         class="bg-red-500 text-white px-3 py-1 rounded">
+         Return
+      </a>
+    </div>
+  <% }) %>
+</div>

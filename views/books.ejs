@@ -1,19 +1,29 @@
-<h2>Books</h2>
 
-<form method="POST" action="/add-book">
-  <input name="title" placeholder="Title" required>
-  <input name="author" placeholder="Author" required>
-  <input name="quantity" placeholder="Qty" required>
-  <button>Add Book</button>
-</form>
 
-<ul>
+<h2 class="text-2xl font-bold mb-4">📚 Books</h2>
+
+<!-- Add Book -->
+<div class="bg-white p-4 rounded shadow mb-6">
+  <form method="POST" action="/add-book" class="flex gap-2">
+    <input name="title" placeholder="Title" class="border p-2 rounded w-full">
+    <input name="author" placeholder="Author" class="border p-2 rounded w-full">
+    <input name="quantity" placeholder="Qty" class="border p-2 rounded w-24">
+    <button class="bg-blue-500 text-white px-4 rounded">Add</button>
+  </form>
+</div>
+
+<!-- Book List -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
   <% books.forEach(book => { %>
-    <li>
-      <%= book.title %> - <%= book.author %> (Qty: <%= book.quantity %>)
-      <a href="/borrow/<%= book._id %>">Borrow</a>
-    </li>
-  <% }) %>
-</ul>
+    <div class="bg-white p-4 rounded shadow">
+      <h3 class="text-xl font-semibold"><%= book.title %></h3>
+      <p class="text-gray-600">Author: <%= book.author %></p>
+      <p class="text-gray-500">Qty: <%= book.quantity %></p>
 
-<a href="/mybooks">My Books</a>
+      <a href="/borrow/<%= book._id %>" 
+         class="inline-block mt-2 bg-green-500 text-white px-3 py-1 rounded">
+         Borrow
+      </a>
+    </div>
+  <% }) %>
+</div>
